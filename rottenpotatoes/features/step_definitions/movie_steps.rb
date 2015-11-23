@@ -51,5 +51,12 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  movies = Movie.all
+  if movies.length == 10
+    movies.each do |movie|
+      page.body =~ /#{movie.title}/m
+    end
+  else
+    false
+  end
 end
