@@ -10,9 +10,15 @@ end
 
 # What to do when I follow "Movie Title"
 When /^I follow"(.*)$"/ do |sort_choice|
-  if sort_choice=="Movie Title"
+  case sort_choice
+  when "Movie Title"
     click_on("title_header")
+  when "Release Date"
+    click_on("release_date")
   end
+  # if sort_choice=="Movie Title"
+  #   click_on("title_header")
+  # end
 end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
