@@ -14,7 +14,7 @@ When /^I follow"(.*)$"/ do |sort_choice|
   when "Movie Title"
     click_on("title_header")
   when "Release Date"
-    click_on("release_date")
+    click_on("release_date_header")
   end
   # if sort_choice=="Movie Title"
   #   click_on("title_header")
