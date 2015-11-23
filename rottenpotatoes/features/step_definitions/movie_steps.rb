@@ -1,5 +1,4 @@
 # Add a declarative step here for populating the DB with movies.
-
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     Movie.create!(movie)
@@ -9,13 +8,27 @@ Given /the following movies exist/ do |movies_table|
   # fail "Unimplemented"
 end
 
+# What to do when I follow "Movie Title"
+When /^I follow"(.*)$"/ do |sort_choice|
+  if sort_choice=="Movie Title"
+    click_on("title_header")
+  end
+end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
-
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  aString = page.body.to_s
+  if aString.index(e1)!=nil && aString.index(e2)!=nil
+    if aString.index(e1) < aString.index(e2)
+
+    else
+      assert false, "jr_fail"
+    end
+  else
+    assert false, "jr_fail"
+  end
 end
 
 # Make it easier to express checking or unchecking several boxes at once
